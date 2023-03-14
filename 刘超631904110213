@@ -1,0 +1,11 @@
+下载安装VMWare虚拟机
+下载Ubuntu18.04到本地磁盘，下载地址：https://releases.ubuntu.com/18.04.6/
+打开虚拟机，对虚拟机进行设置，自定义硬件，点击 “新CD/DVD(SATA)”， 然后点击“使用ISO映像文件”，接着浏览选择准备好的镜像文件，完成虚拟机设置
+启动后，开始配置Ubuntu操作系统
+添加ROS软件源  sudo sh -c echo deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main  /etc/apt/sources.list.d/ros-latest.list
+添加密钥       sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+安装ROS，执行命令1，命令2，sudo apt update，     sudo apt install ros-melodic-desktop-full
+初始化rosdep,执行命令1，命令2，sudo rosdep init，     rosdep update
+设置环境变量，执行命令1，命令2，echo "source /opt/ros/melodic/setup.bash">>~/.bashrc，       source ~/.bashrc
+安装rosiinstall,sudo apt install python-rosinstall python-rosinstall-generator python-wstool build-essential
+验证是否安装成功，执行命令1，2，3.roscore，   rosrun turtlesim turtlesim_node，   rosrun turtlesim turtle_teleop_key
